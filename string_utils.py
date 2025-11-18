@@ -1,7 +1,7 @@
 def split_at_first_digit(formula: str): 
-    for i, ch in enumerate(formula):
-        if ch.isdigit():
-            return formula[:i], int(formula[i:])
+    for i, ch in enumerate(formula): # we use the enumerate func to track the split point by the index
+        if ch.isdigit(): 
+            return formula[:i], int(formula[i:]) 
     return formula, 1
 
 ###############################################################################
