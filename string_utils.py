@@ -13,7 +13,7 @@ def split_before_each_uppercases(formula: str):
 
     for ch in formula:
         if ch.isupper():
-            if current:
+            if current: #not empty
                 parts.append(current)
             current = ch
         else:
