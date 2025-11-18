@@ -9,18 +9,18 @@ def split_before_each_uppercases(formula: str):
         return []
 
     parts = []
-    current = ""
+    current_sum = ""
 
-    for ch in formula:
-        if ch.isupper():
-            if current: #not empty
-                parts.append(current)
-            current = ch
+    for ch in formula: #run on all string by chars and check upper or lower
+        if ch.isupper(): #if the 
+            if current_sum: #not empty
+                parts.append(current_sum)
+            current_sum = ch
         else:
-            current += ch
+            current_sum += ch
 
-    if current:
-        parts.append(current)
+    if current_sum:
+        parts.append(current_sum)
     return parts
 
 
