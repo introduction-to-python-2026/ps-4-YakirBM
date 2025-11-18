@@ -1,3 +1,9 @@
+def split_at_first_digit(formula: str):
+    for i, ch in enumerate(formula):
+        if ch.isdigit():
+            return formula[:i], int(formula[i:])
+    return formula, 1
+
 def split_before_each_uppercases(formula: str):
     """
       "NaCl"     -> ["Na", "Cl"]
@@ -5,27 +11,20 @@ def split_before_each_uppercases(formula: str):
       "water"    -> ["water"]
       ""         -> []
     """
-    if formula == "":
+    if formula == "": # in case the list is empty, to avoid crash
         return []
 
-    parts = []
+    parts = [] 
     current_sum = ""
 
     for ch in formula: #run on all string by chars and check upper or lower
-        if ch.isupper(): #if the 
+        if ch.isupper(): #if the current 'ch' is upper, we need to add the last sum
             if current_sum: #not empty
-                parts.append(current_sum)
-            current_sum = ch
+                parts.append(current_sum) # add the sum of ch's that we found till now
+            current_sum = ch # start new sum with the new upper 'ch'
         else:
-            current_sum += ch
+            current_sum += ch # in case the 'ch' still lower
 
-    if current_sum:
+    if current_sum: # we end the loop and still has
         parts.append(current_sum)
     return parts
-
-
-def split_at_first_digit(formula: str):
-    for i, ch in enumerate(formula):
-        if ch.isdigit():
-            return formula[:i], int(formula[i:])
-    return formula, 1
